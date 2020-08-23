@@ -44,8 +44,20 @@ public class PayBillsPage extends ParentClass {
     @FindBy(partialLinkText = "Purchase Foreign Currency")
     private WebElement ForeignCurrencyButton;
 
-    @FindBy(id = "pc_currency")
+    @FindBy(xpath = "//select[@id='pc_currency']")
     private WebElement CurrencyDropdown;
+
+    @FindBy(id = "pc_amount")
+    private WebElement AmountInput;
+
+    @FindBy(id = "pc_inDollars_true")
+    private WebElement USDollarRadioButton;
+
+    @FindBy(id = "pc_inDollars_false")
+    private WebElement SelectedRadioButton;
+
+    @FindBy(id = "purchase_cash")
+    private WebElement PurchaseButton;
 
 
     WebElement myElement;
@@ -74,8 +86,21 @@ public class PayBillsPage extends ParentClass {
                 myElement = ForeignCurrencyButton;
                 break;
 
+            case "CurrencyDropdown":
+                myElement = CurrencyDropdown;
+                break;
 
+            case "USDollarRadioButton":
+                myElement = USDollarRadioButton;
+                break;
 
+            case "SelectedRadioButton":
+                myElement = SelectedRadioButton;
+                break;
+
+            case "PurchaseButton":
+                myElement = PurchaseButton;
+                break;
         }
 
         clickFunctionality(myElement);
@@ -101,6 +126,12 @@ public class PayBillsPage extends ParentClass {
             case "PayeeDetailsInput":
                 myElement = PayeeDetailsInput;
                 break;
+
+            case "AmountInput":
+                myElement = AmountInput;
+                break;
+
+
         }
         sendKeysFunctionality(myElement, value);
     }
@@ -108,7 +139,21 @@ public class PayBillsPage extends ParentClass {
     public void handleAlerts(String whichMessage) {
 
 
-            Assert.assertTrue(SuccessMessage.getText().contains(whichMessage));
+        Assert.assertTrue(SuccessMessage.getText().contains(whichMessage));
 
-       }
+    }
+
+    public void FindElementAndHandleDropdown(String elementName) {
+
+        switch (elementName) {
+
+            case "CurrencyDropdown":
+                myElement = CurrencyDropdown;
+                break;
+
+
+        }
+
+        handleDropdown(myElement);
+    }
 }

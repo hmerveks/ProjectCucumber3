@@ -19,7 +19,8 @@ Feature: Add new payee functionality
       | PayeeName | PayeeAddress | Account | PayeeDetails | Result       |
       | Merve     | Cumming      | Chase   | Deposit      | successfully |
       | Mina      | Alpharetta   | 3340    |              | successfully |
-      | Hatice    | Johns Creek  |         | Cash         |              |
+#      | Hatice    | Johns Creek  |         | Cash         |              |
 #      | Merve     | Cumming      | Chase   | Deposit      | successfully |
 
 
+# negatif senaryo eksik

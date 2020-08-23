@@ -11,15 +11,17 @@ Feature: Purchase Foreign Currency functionality
 
     And Click on
       | ForeignCurrencyButton |
+      | CurrencyDropdown      |
 
 
     When User fill out "<Currency>","<Amount>","<RadioButton>"
+
     And Click on
-      |  |
+      | PurchaseButton |
     Then "<Result>" message should be displayed
 
 
     Examples:
-      | Currency | Amount  | RadioButton | Result       |
-      | Merve    | Cumming | Chase       | successfully |
-      | 1        | 2       | 3           | successfully |
+      | Currency    | Amount | RadioButton         | Result       |
+      | AUD         | 1000   | USDollarRadioButton | successfully |
+      | Japan (yen) | 10     | SelectedRadioButton | successfully |
